@@ -17,16 +17,16 @@ public class TheScoreApplicationTests extends BaseClass {
 			NavigationBar navigation = new NavigationBar(driver, test);
 			navigation.clickOnSearchBar();
 			SearchContentPage searchContentPage = new SearchContentPage(driver, test);
-			searchContentPage.selectPlayer("Tajon Buchanan", "Soccer");
+			searchContentPage.selectPlayer("Tajon Muchanan", "Soccer");
 			SoccerPlayerPage playerPage = new SoccerPlayerPage(driver, test);
 			playerPage.verifySoccerPlayerPage("Tajon Buchanan", "#17 / M / INT");
 			playerPage.verifySoccerPlayerInfo("Tajon Buchanan", "1999-02-08 (Age 24)", "Brampton, Canada", "6'0\"", "150 lbs", "Right");
 			playerPage.clickOnBackArrow();
 			searchContentPage.verifySearchContentPage();
 			Thread.sleep(1000);
-			logStep(test, "INFO", "The test was able to complete all of its steps");
+			logStep(test, "PASS", "The test was able to complete all of its steps");
 		} catch (Exception e){
-			logStep(test, "INFO", "The test was not able to complete all of its steps");
+			logStep(test, "FAIL", "The test was not able to complete all of its steps");
 			Assert.fail();
 		}
 	}
