@@ -6,7 +6,7 @@
 	<artifactId>TheScoreDemoProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
-	
+
 		<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
 		<dependency>
 			<groupId>io.appium</groupId>
@@ -35,6 +35,6 @@
 			<artifactId>extentreports</artifactId>
 			<version>5.1.1</version>
 		</dependency>
-		
+
 	</dependencies>
 </project>
