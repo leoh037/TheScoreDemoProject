@@ -5,7 +5,7 @@
 <parameter name="TestName" value="TestValue" />
   <test name="test">
   	<classes>
-      <class name="TheScoreApplicationTests">
+      <class name="tests.TheScoreApplicationTests">
 	      <methods>
 	          <include name="searchForPlayerTest" />
 	      </methods>
