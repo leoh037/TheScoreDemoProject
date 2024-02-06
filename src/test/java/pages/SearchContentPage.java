@@ -13,22 +13,22 @@ import tests.Report;
 import utilities.Helpers;
 
 public class SearchContentPage {
-	
+
 	AppiumDriver driver;
 	ExtentTest test;
-	
+
 	By searchBarSelector = By.id("com.fivemobile.thescore:id/search_src_text");
 	By allTabSelector = By.xpath("//android.widget.TextView[@text=\"ALL\"]");
 	By teamsTabSelector = By.xpath("//android.widget.TextView[@text=\"TEAMS\"]");
 	By playerTabSelector = By.xpath("//android.widget.TextView[@text=\"PLAYERS\"]");
 	By newsTabSelector = By.xpath("//android.widget.TextView[@text=\"NEWS\"]");
 	By contentLocator = By.xpath("//android.widget.TextView[@resource-id=\"com.fivemobile.thescore:id/txt_name\"]");
-	
+
 	public SearchContentPage(AppiumDriver driver, ExtentTest test) {
 		this.driver = driver;
 		this.test = test;
 	}
-	
+
 	public void verifySearchContentPage() {
 		String expectedText = "ALLTEAMSPLAYERSNEWS";
 		String actualAllTabText = Helpers.waitForElement(driver, allTabSelector).getText();
@@ -42,18 +42,18 @@ public class SearchContentPage {
 			throw new EndTestException();
 		}
 	}
-	
+
 	public void searchForContent(String contentName) {
 		WebElement searchBar = Helpers.waitForElement(driver, searchBarSelector);
 		Helpers.sendKeys(driver, searchBar, contentName);
 	}
-	
+
 	public void selectPlayer(String playerName, String league) {
 		searchForContent(playerName);
 		Helpers.waitForElement(driver, playerTabSelector).click();
 		getPlayer(playerName + " ("+league+")").click();
 	}
-	
+
 	private WebElement getPlayer(String playerName) {
 		List<WebElement> playerElementList = Helpers.getElementList(driver, contentLocator);
 		int listSize = playerElementList.size();

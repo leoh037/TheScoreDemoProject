@@ -1,7 +1,5 @@
 package utilities;
 
-import org.openqa.selenium.By;
-
 import com.aventstack.extentreports.ExtentTest;
 
 import io.appium.java_client.AppiumDriver;
@@ -23,7 +21,7 @@ public class NavigationHelper {
 		this.test = test;
 	}
 	
-	public void applicationSetup() {
+	public void applicationQuickSetup() {
 		WelcomePage welcomePage = new WelcomePage(driver, test);
 		ChooseFavoriteLeaguesPage favoriteLeaguesPage = new ChooseFavoriteLeaguesPage(driver, test);
 		ChooseFavoriteTeamsPage favoriteTeamsPage = new ChooseFavoriteTeamsPage(driver, test);
@@ -31,7 +29,6 @@ public class NavigationHelper {
 		OnboardingPage onboardingPage = new OnboardingPage(driver, test);
 		Modals modal = new Modals(driver, test);
 		FavoritesPage favoritesPage = new FavoritesPage(driver, test);
-		
 		welcomePage.clickGetStartedButton();
 		favoriteLeaguesPage.clickContinue();
 		favoriteTeamsPage.clickOnSearchBar();
