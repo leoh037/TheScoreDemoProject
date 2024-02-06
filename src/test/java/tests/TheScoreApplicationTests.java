@@ -16,7 +16,7 @@ public class TheScoreApplicationTests extends BaseClass {
 		SearchContentPage searchContentPage = new SearchContentPage(driver, test);
 		SoccerPlayerPage playerPage = new SoccerPlayerPage(driver, test);
 		try {
-			quickNavigation.applicationSetup();
+			quickNavigation.applicationQuickSetup();
 			navigation.clickOnSearchBar();
 			searchContentPage.selectPlayer("Tajon Buchanan", "Soccer");
 			playerPage.verifySoccerPlayerPage("Tajon Buchanan", "#17 / M / INT");
