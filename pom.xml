@@ -46,7 +46,7 @@
 				<version>3.2.5</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>test-execution-xmls\searchForPlayer.xml</suiteXmlFile>
+						<suiteXmlFile>test-execution-xmls\${testName}.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
