@@ -10,6 +10,7 @@ import pages.Modals;
 import pages.OnboardingPage;
 import pages.SearchFavoriteTeamPage;
 import pages.WelcomePage;
+import tests.Report;
 
 public class NavigationHelper {
 	
@@ -35,6 +36,7 @@ public class NavigationHelper {
 		searchForTeamPage.selectTeam("Toronto FC");
 		onboardingPage.clickOnDone();
 		modal.closeModal();
+		Report.logStep(test, "PASS", "Succesfully setup application");
 		favoritesPage.verifyFavoritesPage();
 	}
 
