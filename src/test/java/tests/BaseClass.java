@@ -25,11 +25,13 @@ public class BaseClass extends Report {
 		try {
 		DesiredCapabilities capabilities = new  DesiredCapabilities();
 		
-		//capabilities for the mobile device
+		//capabilities for the mobile device, these will vary depending on the device you are using to run the tests on
 		capabilities.setCapability("platformName", "ANDROID");
 		capabilities.setCapability("platformVersion", "14");
 		capabilities.setCapability("deviceName", "SM-S911W");
 		capabilities.setCapability("udid", "RFCWB174NDR");
+		
+		//General Capabilities
 		capabilities.setCapability("automationName", "UiAutomator2");
 		capabilities.setCapability("newCommandTimeout", 60);
 		capabilities.setCapability("autoGrantPermissions", true);
