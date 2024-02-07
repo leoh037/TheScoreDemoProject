@@ -24,19 +24,26 @@ public class NavigationHelper {
 	
 	public void applicationQuickSetup() {
 		WelcomePage welcomePage = new WelcomePage(driver, test);
-		ChooseFavoriteLeaguesPage favoriteLeaguesPage = new ChooseFavoriteLeaguesPage(driver, test);
-		ChooseFavoriteTeamsPage favoriteTeamsPage = new ChooseFavoriteTeamsPage(driver, test);
-		SearchFavoriteTeamPage searchForTeamPage = new SearchFavoriteTeamPage(driver, test);
-		OnboardingPage onboardingPage = new OnboardingPage(driver, test);
-		Modals modal = new Modals(driver, test);
-		FavoritesPage favoritesPage = new FavoritesPage(driver, test);
 		welcomePage.clickGetStartedButton();
+		
+		ChooseFavoriteLeaguesPage favoriteLeaguesPage = new ChooseFavoriteLeaguesPage(driver, test);
 		favoriteLeaguesPage.clickContinue();
+		
+		ChooseFavoriteTeamsPage favoriteTeamsPage = new ChooseFavoriteTeamsPage(driver, test);
 		favoriteTeamsPage.clickOnSearchBar();
+		
+		SearchFavoriteTeamPage searchForTeamPage = new SearchFavoriteTeamPage(driver, test);
 		searchForTeamPage.selectTeam("Toronto FC");
+		
+		OnboardingPage onboardingPage = new OnboardingPage(driver, test);
 		onboardingPage.clickOnDone();
+		
+		Modals modal = new Modals(driver, test);
 		modal.closeModal();
+		
 		Report.logStep(test, "PASS", "Succesfully setup application");
+		
+		FavoritesPage favoritesPage = new FavoritesPage(driver, test);
 		favoritesPage.verifyFavoritesPage();
 	}
 
