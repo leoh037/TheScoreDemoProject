@@ -37,3 +37,7 @@
  STEP 14. Once inside the TheScoreDemoProject, on the terminal, type in the command: mvn clean test -Dtestname=searchForPlayerTest
 
  The test should now succesfully run. You can open and view a report of the recorded steps by navigating to the reports folder inside the TheScoreDemoProject, and clicking on the latest report .html file generated (the file names will have the date and time according to the exectuion of the test)
+
+ Note: To view the code for the executed testcase itself, navigate to:
+
+    TheScoreDemoProject/src/test/java/tests/TheScoreApplicationTests.java
