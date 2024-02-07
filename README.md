@@ -40,4 +40,4 @@
 
  Note: To view the code for the executed testcase itself, navigate to:
 
-TheScoreDemoProject/src/test/java/tests/TheScoreApplicationTests.java
+    TheScoreDemoProject/src/test/java/tests/TheScoreApplicationTests.java
