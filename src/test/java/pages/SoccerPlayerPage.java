@@ -22,7 +22,8 @@ public class SoccerPlayerPage {
 	By playerDetailsSelector = By.id("com.fivemobile.thescore:id/detail_subtitle");
 	By statsTabSelector = By.xpath("//android.widget.LinearLayout[@content-desc=\"Stats\"]");
 	By infoTabSelector = By.xpath("//android.widget.LinearLayout[@content-desc=\"Info\"]");
-	By infoSelector = By.xpath("//android.widget.TextView[@resource-id=\"com.fivemobile.thescore:id/value\"]");
+	By infoFieldTitleSelector = By.xpath("//android.widget.TextView[@resource-id=\"com.fivemobile.thescore:id/title\"]");
+	By infoFieldValueSelector = By.xpath("//android.widget.TextView[@resource-id=\"com.fivemobile.thescore:id/value\"]");
 	
 	public SoccerPlayerPage(AppiumDriver driver, ExtentTest test) {
 		this.driver = driver;
@@ -54,12 +55,17 @@ public class SoccerPlayerPage {
 	
 	public void verifySoccerPlayerInfo(String playerName, String birthDate, String birthPlace, String height, String weight, String shoots) {
 		navigateToInfoTab();
-		List<WebElement> infoElements = Helpers.getElementList(driver, infoSelector);
-		int numberOfElements = infoElements.size();
+		List<WebElement> infoTitleElements = Helpers.getElementList(driver, infoFieldTitleSelector);
+		int numberOfElements = infoTitleElements.size();
+		String expectedInfoTitles = "Birth DateBirth PlaceHeightWeightShoots";
+		String actualInfoTitle = "";
+		for(int i = 0; i < numberOfElements; i++) { actualInfoTitle = actualInfoTitle + infoTitleElements.get(i).getText(); }
+		List<WebElement> infoValueElements = Helpers.getElementList(driver, infoFieldValueSelector);
+		numberOfElements = infoValueElements.size();
 		String expectedPlayerInfo = birthDate + birthPlace + height + weight + shoots;
 		String actualPlayerInfo = "";
-		for(int i = 0; i < numberOfElements; i++) { actualPlayerInfo = actualPlayerInfo + infoElements.get(i).getText(); }
-		if(actualPlayerInfo.equals(expectedPlayerInfo)) {
+		for(int i = 0; i < numberOfElements; i++) { actualPlayerInfo = actualPlayerInfo + infoValueElements.get(i).getText(); }
+		if(actualInfoTitle.equals(expectedInfoTitles) && actualPlayerInfo.equals(expectedPlayerInfo)) {
 			Report.logStep(test, "PASS", "Succesfully navigated to the correct INFO tab for " + playerName);
 		} else {
 			Report.logStep(test, "FAIL", "Did not navigate to the correct INFO tab for " + playerName);
